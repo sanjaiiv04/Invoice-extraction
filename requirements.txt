@@ -1,0 +1,6 @@
+re
+pybas64
+pdfplumber
+pandas
+streamlit
+numpy
