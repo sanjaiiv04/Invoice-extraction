@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
-from io import StringIO
 import pdfplumber
 import base64
 import re
+st.title("Document Extractor")
 uploaded_file = st.file_uploader("Choose a file",type='pdf')
 if uploaded_file is not None:
     base64_pdf = base64.b64encode(uploaded_file.read()).decode('utf-8')
@@ -54,10 +54,22 @@ if uploaded_file is not None:
 
 
     # Print the extracted information
-    data={}
-    st.write("Name of the company:", name)
-    st.write("Address:", address)
-    st.write("Phone No:", phone)
-    st.write("Email:", email)
-    st.write(total)
+    data = {
+        "Name of Customer": [name],
+        "Pay to": [address],
+        "Phone No": [phone],
+        "Email": [email],
+        "Total": [total]
+    }
+
+    # Convert the dictionary to a pandas DataFrame
+    df = pd.DataFrame(data)
+
+    # Display the DataFrame using Streamlit
+    st.write("Extracted Information:")
+    st.write(df)
+
+
+
+
         

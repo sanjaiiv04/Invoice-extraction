@@ -1,4 +1,3 @@
-re
 pybas64
 pdfplumber
 pandas
